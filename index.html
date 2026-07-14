@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ace of Space — Design–Build Interior Studio</title>
+<meta name="description" content="Ace of Space is a design–build interior studio. We carry every project from design development through construction and handover — one team, one accountability.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Cinzel:wght@400;500;600&family=Trirong:wght@400;500&family=Inter:wght@400;500;600&family=Anuphan:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<!--
+  NOTE FOR PRODUCTION:
+  - v3 restyle (approved) — S1 hero headline + S1 principles headings now use
+    ALL CAPS "Cal Roman Capitals" in var(--font-display-video), #F4F0E9 text,
+    #55504A drop shadow, #E5DFD3 meta/caption. Cal Roman Capitals is a PAID
+    webfont (MyFonts) — Cinzel is loaded above as a free stand-in until the
+    real font is purchased and embedded via @font-face. Swap the font-family
+    in --font-display-video (css/style.css) once the real files are in hand.
+  - This restyle is scoped to S1 (hero + principles) only, since that text
+    sits directly on the raw video. S2's scope copy keeps its original ink/
+    white-shadow treatment because it already sits on a light scrim.
+  - ทุก placeholder ตั้งชื่อตามรหัสใน Brief.md เช่น <img src="assets/img/HERO-01.jpg">
+-->
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="site-head">
+  <a class="brand" id="headBrand" href="./">
+    <span class="logo-slot"><img src="assets/img/logo-ink.svg" alt="Ace of Space"></span>
+  </a>
+  <nav class="site-nav">
+    <a href="#works">Projects</a>
+    <a href="#approach">Approach</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<!-- ================= SCROLL SCENE : S1 → S2 → WIPE ================= -->
+<div class="scene" id="scene">
+  <div class="stage">
+
+    <!-- S1+S2 : ONE CONTINUOUS SHOT — scroll-scrubbed video (Option B) -->
+    <div class="layer layer-video">
+      <!-- Native responsive source selection: browser picks the first matching
+           entry by (a) media query then (b) codec support — no JS needed.
+           Screens ≤900px (same breakpoint as the CSS layout switch) get the
+           720p files; everything else gets the 1080p master. -->
+      <video id="zoomVideo" muted playsinline preload="metadata">
+        <source src="assets/video/S1-S2-scrub-720.mp4"  type="video/mp4"  media="(max-width: 900px)">
+        <source src="assets/video/S1-S2-scrub-720.webm" type="video/webm" media="(max-width: 900px)">
+        <source src="assets/video/S1-S2-scrub.mp4"  type="video/mp4">
+        <source src="assets/video/S1-S2-scrub.webm" type="video/webm">
+      </video>
+    </div>
+
+    <!-- S1 copy overlay -->
+    <div class="layer layer-hero" id="approach" style="background:transparent">
+
+      <span class="vert-meta">Design–Build Interior Studio · Bangkok</span>
+
+      <img class="hero-logo-center" src="assets/img/logo-white.svg" alt="Ace of Space">
+
+      <div class="hero-copy">
+        <h1 class="display">Craft is in the Joint</h1>
+        <p class="th-whisper">งานฝีมืออยู่ที่รอยต่อ</p>
+        <p class="sub">Ace of Space is a design–build interior studio. We obsess over
+        the smallest seam, because the smallest seam is where a space succeeds or fails.</p>
+      </div>
+
+      <div class="hero-scroll-hint">
+        <span class="label">Scroll</span><span class="tick"></span>
+      </div>
+    </div>
+
+    <!-- S1 : PRINCIPLES — combined single screen (circle left + text right,
+         3 rows stacked, per reference sketch). JS fades this whole block
+         in once, holds it, then fades it out — no per-item cycling. -->
+    <div class="layer layer-principles" id="principlesBlock">
+      <div class="principles-wrap">
+
+        <div class="p-row">
+          <figure class="ph ph-circle">
+            <span class="ph-code">PRIN-01</span>
+            <span class="ph-spec">JPG · 800 × 800 · 1:1 · วงกลม</span>
+          </figure>
+          <div class="p-text">
+            <span class="num label">01 — Principle</span>
+            <h2 class="display">Precision in Detail</h2>
+            <p class="p-th">ออกแบบโดยเริ่มจากสิ่งที่เล็กที่สุด — ระยะ รอยต่อ การจัดวาง และข้อจำกัดตามธรรมชาติของวัสดุแต่ละชนิด เพราะแบบที่ดีไม่ใช่แบบที่สวยบนกระดาษ แต่คือแบบที่สร้างได้จริงโดยไม่ต้องประนีประนอมหน้างาน</p>
+          </div>
+        </div>
+
+        <div class="p-row">
+          <figure class="ph ph-circle">
+            <span class="ph-code">PRIN-02</span>
+            <span class="ph-spec">JPG · 800 × 800 · 1:1 · วงกลม</span>
+          </figure>
+          <div class="p-text">
+            <span class="num label">02 — Principle</span>
+            <h2 class="display">Material Integrity</h2>
+            <p class="p-th">เลือกใช้วัสดุคุณภาพสูงสุดในแต่ละหมวด และก่อสร้างด้วยกรรมวิธีดั้งเดิมที่ถูกต้องตามธรรมชาติของวัสดุนั้น ไม่ลดสเปค ไม่ข้ามขั้นตอน ไม่เร่งกระบวนการที่ต้องใช้เวลา — เพราะงานที่ทำถูกตั้งแต่ต้น คืองานที่ไม่ต้องกลับมาแก้</p>
+          </div>
+        </div>
+
+        <div class="p-row">
+          <figure class="ph ph-circle">
+            <span class="ph-code">PRIN-03</span>
+            <span class="ph-spec">JPG · 800 × 800 · 1:1 · วงกลม</span>
+          </figure>
+          <div class="p-text">
+            <span class="num label">03 — Principle</span>
+            <h2 class="display">Three Decades of Craft</h2>
+            <p class="p-th">ทีมช่างก่อสร้างที่ทำงานร่วมกันต่อเนื่องกว่า 30 ปี ผ่านงานหลากหลายประเภทและหลากหลายวัสดุ ประสบการณ์นี้คือหลักประกันว่า สิ่งที่เห็นในแบบ คือสิ่งที่จะเกิดขึ้นจริงหน้างาน</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- S2 : SCOPE copy overlay (video ends on the wide interior) -->
+    <div class="layer layer-scope" style="background:transparent">
+      <div class="scope-scrim" aria-hidden="true"></div>
+      <div class="scope-copy">
+        <span class="label">Scope of Works</span>
+        <h2 class="display">From First Line to Final Joint</h2>
+        <p class="th-whisper">จากเส้นแรกบนแบบ ถึงรอยต่อสุดท้ายหน้างาน</p>
+        <p class="en">We carry every project from design development through construction
+        and handover — one team, one accountability.</p>
+        <p class="th">เมื่อผู้ออกแบบและผู้ก่อสร้างคือทีมเดียวกัน ความคลาดเคลื่อนจากการสื่อสารระหว่าง
+        interior designer และ contractor จะหายไป งานแก้ที่ไม่จำเป็นลดลง
+        และเจ้าของโครงการไม่ต้องจ่ายให้กับต้นทุนแฝงที่เกิดจากการตีความแบบผิด —
+        สิ่งที่ตกลงกันไว้ในแบบ คือสิ่งที่ได้รับหน้างาน ทั้งงบประมาณและระยะเวลา</p>
+        <div class="scope-steps">
+          <span>Design Development</span>
+          <span>Construction</span>
+          <span>Handover &amp; Aftercare</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- EXIT PANEL -->
+    <div class="layer layer-wipe" aria-hidden="true"></div>
+
+  </div>
+</div>
+
+<!-- ================= S3 : PROJECT INDEX ================= -->
+<section class="works" id="works">
+  <div class="wrap">
+
+    <div class="works-head-ref reveal">
+      <h2>Selected Works</h2>
+      <p>Design &amp; Construction</p>
+      <p class="th-whisper">ผลงานที่ผ่านมา — ออกแบบและก่อสร้างโดยทีมเดียวกันทุกตารางเมตร</p>
+    </div>
+
+    <div class="works-grid3">
+
+      <a class="card3 reveal" href="projects/sdc-office.html">
+        <div class="frame3"><img src="assets/img/IDX-01.jpg" alt="SDC Office" loading="lazy"></div>
+        <h3>SDC Office</h3>
+        <p class="card3-sub">A workspace built around focus and flow</p>
+        <p class="card3-th th-whisper">สำนักงาน เอสดีซี</p>
+        <p class="label card3-meta">Office &nbsp;·&nbsp; 20––</p>
+      </a>
+
+      <a class="card3 reveal" href="projects/chiangrai-resort.html">
+        <div class="frame3"><img src="assets/img/IDX-02.jpg" alt="Chiang Rai Resort" loading="lazy"></div>
+        <h3>Chiang Rai Resort</h3>
+        <p class="card3-sub">Northern calm, crafted room by room</p>
+        <p class="card3-th th-whisper">รีสอร์ท เชียงราย</p>
+        <p class="label card3-meta">Hospitality &nbsp;·&nbsp; 20––</p>
+      </a>
+
+      <a class="card3 reveal" href="projects/bangna-house.html">
+        <div class="frame3"><img src="assets/img/IDX-03.jpg" alt="Bangna House" loading="lazy"></div>
+        <h3>Bangna House</h3>
+        <p class="card3-sub">A family home tailored to daily rituals</p>
+        <p class="card3-th th-whisper">บ้านพักอาศัย บางนา</p>
+        <p class="label card3-meta">Residence &nbsp;·&nbsp; 20––</p>
+      </a>
+
+      <a class="card3 reveal" href="projects/khunyai-house.html">
+        <div class="frame3"><img src="assets/img/IDX-04.jpg" alt="Khunyai House" loading="lazy"></div>
+        <h3>Khunyai House</h3>
+        <p class="card3-sub">A house that keeps three generations close</p>
+        <p class="card3-th th-whisper">บ้านคุณยาย</p>
+        <p class="label card3-meta">Residence &nbsp;·&nbsp; 20––</p>
+      </a>
+
+      <a class="card3 reveal" href="projects/rama2-house.html">
+        <div class="frame3"><img src="assets/img/IDX-05.jpg" alt="Rama II House" loading="lazy"></div>
+        <h3>Rama II House</h3>
+        <p class="card3-sub">Quiet materials for a full-speed city life</p>
+        <p class="card3-th th-whisper">บ้านพักอาศัย พระราม 2</p>
+        <p class="label card3-meta">Residence &nbsp;·&nbsp; 20––</p>
+      </a>
+
+      <a class="card3 reveal" href="projects/khaoyai-house.html">
+        <div class="frame3"><img src="assets/img/IDX-06.jpg" alt="Khao Yai House" loading="lazy"></div>
+        <h3>Khao Yai House</h3>
+        <p class="card3-sub">A weekend retreat facing the mountain air</p>
+        <p class="card3-th th-whisper">บ้านพักตากอากาศ เขาใหญ่</p>
+        <p class="label card3-meta">Residence &nbsp;·&nbsp; 20––</p>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-foot" id="contact">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <p class="foot-brand">Ace of Space</p>
+        <p class="foot-close">“Every space deserves an ace.”</p>
+        <p class="th-whisper">ทุกสเปซควรได้มือหนึ่ง <span class="label">· TXT-FOOTER-02</span></p>
+      </div>
+      <div class="ph-text">
+        <span class="ph-code">TXT-FOOTER-01</span>
+        <p>ที่อยู่ · โทร · อีเมล · LINE ID · Instagram / Facebook</p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span class="label">© 2026 Ace of Space — Design–Build Interior Studio</span>
+      <span class="label">Bangkok, Thailand</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main-video.js"></script>
+</body>
+</html>
