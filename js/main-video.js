@@ -81,6 +81,10 @@
         var pOpacity = Math.min(pFadeIn, pFadeOut);
         principlesBlock.style.opacity = pOpacity;
         principlesBlock.style.transform = 'translateY(' + (18 * (1 - pFadeIn)) + 'px)';
+        /* capture touches (for the mobile inner scroll) only while the block
+           is actually visible — otherwise the invisible full-screen layer
+           would steal swipes from the hero / video-scrub stages */
+        principlesBlock.style.pointerEvents = pOpacity > 0.05 ? 'auto' : 'none';
       }
 
       /* --- VIDEO SCRUB: footage completes before the S2 copy arrives --- */

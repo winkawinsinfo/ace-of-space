@@ -490,6 +490,13 @@ body.reduced .hero-copy { opacity:1 !important; }
      flexbox centered-overflow scroll-clipping bug) so a user can always
      swipe to see all 3 principles; once they hit the top/bottom of this
      inner scroll, the swipe naturally chains to the outer page scroll. */
+  /* iOS fix (2): .layer-scope (z14, invisible at this stage) sits ABOVE the
+     principles block (z12) and was swallowing every touch — so the inner
+     scroll below never engaged and swipes drove the page/video scrub
+     instead. Let touches pass through it on mobile (it has no interactive
+     elements). JS additionally toggles pointer-events on #principlesBlock
+     so it only captures touches while it is actually visible. */
+  .layer-scope { pointer-events:none; }
   .layer-principles { pointer-events:auto; }
   .principles-wrap {
     justify-content:flex-start;
