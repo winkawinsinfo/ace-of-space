@@ -481,8 +481,26 @@ body.reduced .hero-copy { opacity:1 !important; }
   .site-nav { gap:18px; }
   .site-nav a { font-size:10px; }
   .vert-meta { display:none; }
-  .principles-wrap { gap:28px; }
-  .p-row { flex-direction:column; text-align:center; gap:18px; }
+
+  /* iOS/mobile fix: stacked circle+text rows (below) make each principle
+     row far taller than on desktop, so all 3 rows together can exceed the
+     100vh pinned viewport — content was getting silently clipped by
+     .stage's overflow:hidden with no way to reach it. Make the block
+     internally scrollable on mobile (justify-content:flex-start avoids the
+     flexbox centered-overflow scroll-clipping bug) so a user can always
+     swipe to see all 3 principles; once they hit the top/bottom of this
+     inner scroll, the swipe naturally chains to the outer page scroll. */
+  .layer-principles { pointer-events:auto; }
+  .principles-wrap {
+    justify-content:flex-start;
+    max-height:100%;
+    overflow-y:auto;
+    -webkit-overflow-scrolling:touch;
+    gap:24px;
+    padding-block:36px;
+  }
+  .p-row { flex-direction:column; text-align:center; gap:14px; flex:none; }
+  .p-row .ph-circle { width:120px; }
   .p-text { max-width:100%; }
   .p-text p { max-width:100%; }
   .works-grid { grid-template-columns:1fr; row-gap:72px; padding-bottom:0; }
